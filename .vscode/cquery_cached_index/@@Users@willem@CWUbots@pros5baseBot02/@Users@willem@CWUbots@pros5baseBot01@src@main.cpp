@@ -1,7 +1,7 @@
 #include "main.h"
 #include "portdef.hpp"		// portdef.hpp defines all the ports by name we use on the V5 brain
-													// using a portdef.hpp file, and usign the defenitions set in their
-													// as the paramenters when we need to specifiy a oort in our code,
+													// using a portdef.hpp file, and using the definitions set in their
+													// as the parameters when we need to specify a port in our code,
 													// allows us very quickly to move things around and gives us one
 													// place to look for all the ports and their assigned functions
 
@@ -26,8 +26,10 @@ void initialize() {
 	// if we give a command to move forward, the left motor runs clockwise and the
 	// right motor counter clockwise - moving the robot forward.
 
-	pros::Motor left_wheel (LEFT_MOTOR_PORT, MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
-	pros::Motor right_wheel (RIGHT_MOTOR_PORT, MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_DEGREES);
+	// gearset is set to the RED cartridge - you may need to change back to default of green
+	// by changing MOTOR_GEARSET_36 to MOTOR_GEARSET_18
+	pros::Motor left_wheel (LEFT_MOTOR_PORT, MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+	pros::Motor right_wheel (RIGHT_MOTOR_PORT, MOTOR_GEARSET_36, true, pros::E_MOTOR_ENCODER_DEGREES);
 }
 
 /**
@@ -76,7 +78,7 @@ void autonomous() {}
  */
 void opcontrol() {
   motorMaxSpeed = 25;			// Lets set the max speed of movement, remember it is
-													// a glbal variabel see globals.cpp/globals.hpp
+													// a global variable see globals.cpp/globals.hpp
 
 
 	// Now lets move the robot forward for a bit.  We use relative movement here, so we
@@ -135,11 +137,11 @@ void opcontrol() {
 	// for fun lets print what the speed is
 	std::cout << "Motospeed is set to: " << motorMaxSpeed << "\n";
 
-	right_wheel.move_relative(-1000, motorMaxSpeed);		// Move forward for 1000 encoder units
-  left_wheel.move_relative(-1000, motorMaxSpeed);
-
 	left_wheel.tare_position();       // ensure encoders are reset before
 	right_wheel.tare_position();      // movement.
+
+	right_wheel.move_relative(-1000, motorMaxSpeed);		// Move forward for 1000 encoder units
+  left_wheel.move_relative(-1000, motorMaxSpeed);
 
 	while (!((left_wheel.get_position() > -1005) && (left_wheel.get_position() < -995))) {
     // Continue running this loop as long as the motor is not within +-5 units of its goal

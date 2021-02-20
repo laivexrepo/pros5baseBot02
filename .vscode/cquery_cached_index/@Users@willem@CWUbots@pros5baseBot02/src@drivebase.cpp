@@ -3,9 +3,9 @@
 // Use drivebase.cpp together with drivebase.hpp to define all drivebase related movement
 // functions, which should be available/accessible in autonomous and opcontrol code.
 //
-// forexample setup a function called driveForDistance() which takes two inputs,
-// by decalaring the fucntion in drivebase.hpp as well, it will become generally
-// availabel - ensure you include #include "drivebase.hpp" in the relevant source (.cpp) files
+// for example setup a function called driveForDistance() which takes two inputs,
+// by declaring the function in drivebase.hpp as well, it will become generally
+// available - ensure you include #include "drivebase.hpp" in the relevant source (.cpp) files
 
 #include "main.h"
 #include "globals.hpp"
@@ -57,7 +57,7 @@ void driveForDistance(float distance, int speed) {
   if(DEBUG) {
     std::cout << "Encoder Left: " << left_wheel.get_position() << " Right: " << right_wheel.get_position() << "\n";
   }
-  // we sill stop the motors
+  // we will stop the motors
   left_wheel.move_velocity(0);
   right_wheel.move_velocity(0);
 }

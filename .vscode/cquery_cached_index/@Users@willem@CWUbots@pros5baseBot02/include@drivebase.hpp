@@ -8,6 +8,6 @@
                           // of two frontwheels in cm
 
 void driveForDistance(float distance, int speed);  // drive a distance in cm at
-                                                  // a given speed
+                                                   // a given speed
 
 #endif

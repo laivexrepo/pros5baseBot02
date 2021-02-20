@@ -163,11 +163,11 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/globals.cpp.o",
-            "src/globals.cpp"
+            "bin/drivebase.cpp.o",
+            "src/drivebase.cpp"
         ],
         "directory": "/Users/willem/CWUbots/pros5baseBot02",
-        "file": "src/globals.cpp"
+        "file": "src/drivebase.cpp"
     },
     {
         "arguments": [
@@ -197,10 +197,10 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/drivebase.cpp.o",
-            "src/drivebase.cpp"
+            "bin/globals.cpp.o",
+            "src/globals.cpp"
         ],
         "directory": "/Users/willem/CWUbots/pros5baseBot02",
-        "file": "src/drivebase.cpp"
+        "file": "src/globals.cpp"
     }
 ]
