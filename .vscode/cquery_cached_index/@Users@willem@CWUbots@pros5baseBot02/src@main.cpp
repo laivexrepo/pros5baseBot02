@@ -156,7 +156,7 @@ void opcontrol() {
 	left_wheel.move_velocity(0);
 	right_wheel.move_velocity(0);
 
-	// Lest use our new drivebase.cpp defined function to drive for a given distance
+	// Lets use our new drivebase.cpp defined function to drive for a given distance
 	// Lets drive for 100cm - can you predict the encoder values?
 	if(DEBUG) {std::cout << "Drivebase function: 100cm and speed 65 will be called \n"; }
 	driveForDistance(100, 65);
